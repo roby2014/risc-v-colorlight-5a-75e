@@ -10,9 +10,12 @@ built with **LiTex** in a **Colorlight 5A-75E** board (Lattice ECP5).
 | name      | pin | note            |
 |-----------|-----|-----------------|
 | clk25     | P6  | 25MHz clock     |
-| UART TX   | U16 | J19 (DATA_LED-) |
-| UART RX   | R16 | J19 (KEY+)      |
+| UART TX   | T6  | J19 (DATA_LED-) |
+| UART RX   | R7  | J19 (KEY+)      |
 
+### Schematic
+
+<img src="./schematic.png" width="800"/>
 
 ## Prerequisites
 
