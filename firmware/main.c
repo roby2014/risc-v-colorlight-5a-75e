@@ -63,7 +63,7 @@ static char *get_token(char **str)
 
 static void prompt(void)
 {
-	printf("RUNTIME>");
+	printf("$ >");
 }
 
 static void help(void)
@@ -71,22 +71,11 @@ static void help(void)
 	puts("Available commands:");
 	puts("help                            - this command");
 	puts("reboot                          - reboot CPU");
-	puts("led                             - led test");
 }
 
 static void reboot(void)
 {
 	ctrl_reset_write(1);
-}
-
-static void led_test(void)
-{
-	int i;
-	printf("led_test...\n");
-	for(i=0; i<32; i++) {
-		leds_out_write(i);
-		busy_wait(1000);
-	}
 }
 
 static void console_service(void)
@@ -101,8 +90,6 @@ static void console_service(void)
 		help();
 	else if(strcmp(token, "reboot") == 0)
 		reboot();
-	else if(strcmp(token, "led") == 0)
-		led_test();
 	prompt();
 }
 
@@ -112,7 +99,8 @@ int main(void)
 	irq_setie(1);
 	uart_init();
 
-	puts("\nLab004 - CPU testing software built "__DATE__" "__TIME__"\n");
+	puts("\n"__DATE__" "__TIME__"\n");
+	puts("\nLiteX RISC-V SoC on Colorlight 5A-75E\n");
 	help();
 	prompt();
 

@@ -1,5 +1,6 @@
-VERSION ?= 5a_7b
-BUILD_DIR=../build/colorlight_$(VERSION)
+BUILD_DIR=../build/colorlight_5a_75e
+DEVICE?=/dev/ttyUSB1 #device to use for firmware upload
+LXTERM_DIR?=
 
 include $(BUILD_DIR)/software/include/generated/variables.mak
 include $(SOC_DIRECTORY)/software/common.mak
@@ -7,6 +8,9 @@ include $(SOC_DIRECTORY)/software/common.mak
 OBJECTS=crt0.o main.o
 
 all: firmware.bin
+
+run: all
+	$(LXTERM_DIR) $(DEVICE) --kernel firmware.bin
 
 # pull in dependency info for *existing* .o files
 -include $(OBJECTS:.o=.d)
