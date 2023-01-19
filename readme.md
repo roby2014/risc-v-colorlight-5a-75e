@@ -1,7 +1,7 @@
 # RISC-V on Colorlight 5A-75E
 
-Demonstration on using a soft core (**VexRiscv**)
-built with **LiTex** in a **Colorlight 5A-75E** board (Lattice ECP5).
+Demonstration on using a soft core ([**VexRiscv**](https://github.com/SpinalHDL/VexRiscv))
+built with [**LiTex**]((https://github.com/enjoy-digital/litex)) in a **Colorlight 5A-75E** board (Lattice ECP5).
 
 ## Info
 
@@ -27,6 +27,7 @@ built with **LiTex** in a **Colorlight 5A-75E** board (Lattice ECP5).
 ### software
 
 - LiteX and Migen tools (see [litex wiki](https://github.com/enjoy-digital/litex/wiki/Installation) for installation instructions)
+- RISC-V toolchain (check litex wiki aswell)
 - yosys, nextpnr and prjtrellis (ECP5 toolchain)
 - openFPGALoader
 
@@ -132,8 +133,9 @@ $ >
 ```
 
 ### References
-- [openFPGALoader](https://github.com/trabucayre/openFPGALoader)
+- [Using FTDI232RL as a JTAG programmer (my blogpost)](https://roby2014-me.vercel.app/programming-a-colorlight-5a-75e-board-ECP5-FPGA-with-open-source-tools/#using-ftdi232rl-as-a-jtag-programmer)
+- [VexRiscv](https://github.com/SpinalHDL/VexRiscv)
 - [litex](https://github.com/enjoy-digital/litex)
-- [litex-hub/fpga_101](https://github.com/litex-hub/fpga_101)
+- [openFPGALoader](https://github.com/trabucayre/openFPGALoader)
 - [litexOnColorlightLab004](https://github.com/trabucayre/litexOnColorlightLab004)
 - [riscvOnColorlight-5A-75B](https://github.com/ghent360/riscvOnColorlight-5A-75B)
