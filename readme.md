@@ -128,11 +128,6 @@ reboot                          - reboot CPU
 $ >
 ```
 
-## test
-```bash
-help
-```
-
 ### References
 - [openFPGALoader](https://github.com/trabucayre/openFPGALoader)
 - [litex](https://github.com/enjoy-digital/litex)
