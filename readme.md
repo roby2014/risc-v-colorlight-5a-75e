@@ -50,7 +50,7 @@ make run DEVICE=... LXTERM_DIR=...
 ```
 where:
   - `DEVICE` is your USB <-> UART converter device (default = `/dev/ttyUSB1`).
-  - `LXTERM_DIR` is the path where you have `litex_term.py` script (default = ``).
+  - `LXTERM_DIR` is the path where you have `litex_term.py` script (default = `litex_term.py`).
 
 Example:
 ```bash

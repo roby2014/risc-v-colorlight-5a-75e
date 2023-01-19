@@ -1,6 +1,6 @@
 BUILD_DIR=../build/colorlight_5a_75e
 DEVICE?=/dev/ttyUSB1 #device to use for firmware upload
-LXTERM_DIR?=
+LXTERM_DIR?=litex_term.py
 
 include $(BUILD_DIR)/software/include/generated/variables.mak
 include $(SOC_DIRECTORY)/software/common.mak
