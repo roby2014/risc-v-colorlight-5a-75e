@@ -13,15 +13,12 @@ built with [**LiTex**]((https://github.com/enjoy-digital/litex)) in a **Colorlig
 | UART TX   | T6  | J19 (DATA_LED-) |
 | UART RX   | R7  | J19 (KEY+)      |
 
-### Schematic
-
-<img src="./schematic.png" width="800"/>
-
 ## Prerequisites
 
 ### hardware
 - Colorlight 5A-75E (duh) (with JTAG header pins)
 - JTAG programmer (I used FT232RL (*not recommended, very slow!!!*))
+  - USB Blaster also supported, check [USB Blaster section](#usb-blaster) 
 - USB <-> UART converter (i also used another FT232RL)
 
 ### software
@@ -43,10 +40,33 @@ cd firmware && make
 
 ## Load bitstream into FPGA
 ```bash
-./base.py --load [--cable yourCable]
+./base.py --load [--cable jtagCable]
 ```
-where *yourCable* depends on your JTAG probe. 
+where *jtagCable* depends on your JTAG probe. 
+
+### JTAG cable
 If `--cable` is not provided, `ft232RL` will be used by default.
+
+#### FTDI232RL
+Make sure the pin mapping is the following:
+| Connector | Function | FTDI232RL |
+|-----------|----------|-----------|
+| J27       | TCK      | TX        | 
+| J31       | TMS      | CTS       | 
+| J32       | TDI      | RX        | 
+| J30       | TDO      | RTS       | 
+|           |          |           |
+| J33       | 3.3V     | VCC       |
+| J34       | GND      | GND       |
+|           |          |           |
+| 5V        | POWER    | 5V        |
+
+<img src="./schematic.png" width="600"/>
+
+#### USB Blaster
+If you want to use USB Blaster, you need to have an environment variable `QUARTUSPATH` with
+your quartus installation path, 
+e.g: add `export QUARTUSPATH=/home/roby/intelFPGA_lite/22.1std/quartus` to `~/.bashrc`.
 
 ## Load firmware
 ```bash

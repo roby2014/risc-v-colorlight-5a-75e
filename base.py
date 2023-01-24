@@ -49,12 +49,20 @@ def main():
     builder = Builder(soc, **builder_argdict(args))
     builder.build(**trellis_argdict(args), run=args.build)
 
-    bitstream_file = os.path.join(builder.gateware_dir, soc.build_name + ".bit")
+    bitstream_file = os.path.join(builder.gateware_dir, f'{soc.build_name}.bit')
     if args.load:
+        if args.cable == "ft232RL":
+            extra_args = "--pins=RXD:RTS:TXD:CTS"
+        elif args.cable == "usb-blaster":
+            quartus_path = os.environ['QUARTUSPATH']
+            extra_args = f'--probe-firmware {quartus_path}/linux64/blaster_6810.hex'
+        else:
+            extra_args = ""
         print("Uploading bitstream file: {}".format(bitstream_file))
         print("JTAG cable: {}".format(args.cable))
-        os.system("openFPGALoader --pins=RXD:RTS:TXD:CTS --cable {0} {1}"
-                  .format(args.cable, bitstream_file))
+        print("Extra openFPGALoader arguments: {}".format(extra_args))
+        os.system("openFPGALoader --cable {0} {1} {2}""".format(args.cable, extra_args, bitstream_file))
+
 
 if __name__ == "__main__":
     main()
