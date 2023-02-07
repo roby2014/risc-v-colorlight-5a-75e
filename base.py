@@ -49,7 +49,6 @@ def main():
     builder = Builder(soc, **builder_argdict(args))
     builder.build(**trellis_argdict(args), run=args.build)
 
-    bitstream_file = os.path.join(builder.gateware_dir, f'{soc.build_name}.bit')
     if args.load:
         if args.cable == "ft232RL":
             extra_args = "--pins=RXD:RTS:TXD:CTS"
@@ -58,6 +57,8 @@ def main():
             extra_args = f'--probe-firmware {quartus_path}/linux64/blaster_6810.hex'
         else:
             extra_args = ""
+            
+        bitstream_file = os.path.join(builder.gateware_dir, f'{soc.build_name}.bit')
         print("Uploading bitstream file: {}".format(bitstream_file))
         print("JTAG cable: {}".format(args.cable))
         print("Extra openFPGALoader arguments: {}".format(extra_args))

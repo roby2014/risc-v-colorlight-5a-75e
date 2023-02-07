@@ -19,6 +19,7 @@ built with [**LiTex**]((https://github.com/enjoy-digital/litex)) in a **Colorlig
 - Colorlight 5A-75E (duh) (with JTAG header pins)
 - JTAG programmer (I used FT232RL (*not recommended, very slow!!!*))
   - USB Blaster also supported, check [USB Blaster section](#usb-blaster) 
+  - FT232H is also supported (`--cable ft232`)
 - USB <-> UART converter (i also used another FT232RL)
 
 ### software
